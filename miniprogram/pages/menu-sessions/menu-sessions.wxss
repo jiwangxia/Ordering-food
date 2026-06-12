@@ -1,0 +1,4 @@
+.session-name {
+  margin-bottom: 8rpx;
+  font-weight: 700;
+}

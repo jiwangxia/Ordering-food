@@ -1,0 +1,10 @@
+<view class="page login-page">
+  <view class="hero">
+    <view class="title">共享菜单</view>
+    <view class="subtitle">为朋友饭局创建空间、一起点菜、由厨师确认最终可做份数。</view>
+  </view>
+  <view class="card stack">
+    <view class="section-title">开始使用</view>
+    <button class="button" bindtap="handleLogin">微信登录</button>
+  </view>
+</view>

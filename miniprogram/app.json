@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/spaces/spaces",
+    "pages/space-home/space-home",
+    "pages/dishes/dishes",
+    "pages/dish-edit/dish-edit",
+    "pages/menu-sessions/menu-sessions",
+    "pages/menu-session-detail/menu-session-detail",
+    "pages/chef-confirm/chef-confirm",
+    "pages/order-detail/order-detail",
+    "pages/members/members"
+  ],
+  "window": {
+    "navigationBarTitleText": "共享菜单",
+    "navigationBarBackgroundColor": "#f7f4ef",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f4ef"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

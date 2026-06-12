@@ -1,0 +1,26 @@
+.dish {
+  display: flex;
+  gap: 20rpx;
+}
+
+.dish-cover {
+  flex: 0 0 112rpx;
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  background: #dce7d2;
+  color: #2f6b45;
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.dish-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-name {
+  font-weight: 700;
+}

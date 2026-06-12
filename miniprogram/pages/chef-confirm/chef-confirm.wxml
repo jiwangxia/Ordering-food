@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="title">厨师确认</view>
+  <view class="subtitle">确认每道菜可做、部分可做或无货。</view>
+
+  <view wx:for="{{items}}" wx:key="dish._id" class="card stack">
+    <view class="row">
+      <view>
+        <view class="dish-name">{{item.dish.name}}</view>
+        <view class="muted">原点 x{{item.original_total_quantity}}</view>
+      </view>
+      <view class="tag">{{item.confirmText}}</view>
+    </view>
+    <view class="segmented">
+      <button size="mini">可做</button>
+      <button size="mini">部分</button>
+      <button size="mini">无货</button>
+    </view>
+    <input class="input" type="number" placeholder="部分可做时填写份数" value="{{item.confirmation.available_quantity}}" />
+    <textarea class="textarea" placeholder="厨师备注" value="{{item.confirmation.note}}"></textarea>
+  </view>
+
+  <view class="footer-actions">
+    <button class="button" bindtap="saveConfirmations">保存确认结果</button>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="title">{{space.name}}</view>
+  <view class="subtitle">{{space.description}}</view>
+
+  <view class="section-title">功能入口</view>
+  <view class="grid">
+    <view class="card entry" bindtap="goDishes">菜品库</view>
+    <view class="card entry" bindtap="goSessions">点单局</view>
+    <view class="card entry" bindtap="goMembers">成员管理</view>
+    <view class="card entry" bindtap="goOrder">历史订单</view>
+  </view>
+
+  <view class="section-title">提醒</view>
+  <view class="card">
+    <view class="row">
+      <view>周六晚饭等待厨师确认</view>
+      <view class="tag">红点提醒</view>
+    </view>
+  </view>
+</view>

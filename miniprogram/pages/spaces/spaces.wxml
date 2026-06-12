@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="row">
+    <view>
+      <view class="title">我的空间</view>
+      <view class="subtitle">选择一个饭局空间继续。</view>
+    </view>
+  </view>
+
+  <view class="section-title">已加入</view>
+  <view wx:for="{{spaces}}" wx:key="_id" class="card" bindtap="openSpace" data-id="{{item._id}}">
+    <view class="row">
+      <view>
+        <view class="section-title compact">{{item.name}}</view>
+        <view class="muted">{{item.description}}</view>
+      </view>
+      <view class="tag">{{item.currency_name}}</view>
+    </view>
+    <view class="muted">邀请码 {{item.invite_code}}</view>
+  </view>
+
+  <view class="footer-actions">
+    <button class="button secondary">创建空间</button>
+    <button class="button secondary">加入空间</button>
+  </view>
+</view>

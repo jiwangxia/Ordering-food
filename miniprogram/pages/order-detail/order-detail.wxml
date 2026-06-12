@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="title">订单详情</view>
+  <view class="subtitle">保留每次提交后的订单版本快照。</view>
+
+  <view class="section-title">当前版本</view>
+  <view class="card stack">
+    <view class="row">
+      <view>订单状态</view>
+      <view class="tag">{{order.status}}</view>
+    </view>
+    <view class="row">
+      <view>最新版本</view>
+      <view>v{{order.latest_version}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">最终菜单</view>
+  <view wx:for="{{items}}" wx:key="dish._id" class="card">
+    <view class="row">
+      <view>{{item.dish.name}}</view>
+      <view>x{{item.final_total_quantity}}</view>
+    </view>
+    <view class="muted">{{item.final_amount}} 饭票</view>
+  </view>
+
+  <view class="section-title">版本记录</view>
+  <view wx:for="{{versions}}" wx:key="_id" class="card">
+    <view class="row">
+      <view>版本 v{{item.version_no}}</view>
+      <view class="muted">{{item.created_at}}</view>
+    </view>
+  </view>
+</view>

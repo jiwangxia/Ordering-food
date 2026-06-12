@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="title">成员管理</view>
+  <view class="subtitle">owner 可以将成员设为厨师。</view>
+
+  <view wx:for="{{members}}" wx:key="_id" class="card">
+    <view class="row">
+      <view>
+        <view class="member-name">{{item.user.nickname}}</view>
+        <view class="muted">{{item.user_id}}</view>
+      </view>
+      <view class="tag">{{item.role}}</view>
+    </view>
+  </view>
+</view>

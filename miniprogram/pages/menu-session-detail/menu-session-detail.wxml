@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="row">
+    <view>
+      <view class="title">{{session.name}}</view>
+      <view class="subtitle">{{session.description}}</view>
+    </view>
+    <view class="tag">{{statusText}}</view>
+  </view>
+
+  <view class="section-title">菜单汇总</view>
+  <view wx:for="{{items}}" wx:key="dish._id" class="card">
+    <view class="row">
+      <view>
+        <view class="dish-name">{{item.dish.name}}</view>
+        <view class="muted">{{item.dish.price}} 饭票/份</view>
+      </view>
+      <view class="count">x{{item.original_total_quantity}}</view>
+    </view>
+    <view class="muted">成员：{{item.originalUserText}}</view>
+    <view class="confirm">
+      <view>{{item.confirmText}}</view>
+      <view>最终有效 x{{item.final_total_quantity}}，{{item.final_amount}} 饭票</view>
+    </view>
+  </view>
+
+  <view class="section-title">底部汇总</view>
+  <view class="card stack">
+    <view class="row">
+      <view>原始合计</view>
+      <view>{{summary.original.total_quantity}} 份 / {{summary.original.total_amount}} 饭票</view>
+    </view>
+    <view class="row">
+      <view>最终有效</view>
+      <view>{{summary.final.total_quantity}} 份 / {{summary.final.total_amount}} 饭票</view>
+    </view>
+  </view>
+
+  <view class="footer-actions">
+    <button class="button secondary" bindtap="goChefConfirm">厨师确认</button>
+    <button class="button" bindtap="submitSession">提交订单</button>
+  </view>
+</view>

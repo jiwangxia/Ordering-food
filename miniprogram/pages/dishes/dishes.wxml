@@ -1,0 +1,21 @@
+<view class="page">
+  <view class="title">菜品库</view>
+  <input class="input" value="{{keyword}}" placeholder="搜索菜名" bindinput="handleKeywordInput" />
+
+  <view class="section-title">全部菜品</view>
+  <view wx:for="{{dishes}}" wx:key="_id" class="card dish">
+    <view class="dish-cover">{{item.initial}}</view>
+    <view class="dish-body">
+      <view class="row">
+        <view class="dish-name">{{item.name}}</view>
+        <view class="tag">{{item.price}} 饭票</view>
+      </view>
+      <view class="muted">{{item.ingredients}}</view>
+      <view class="subtitle">{{item.description}}</view>
+    </view>
+  </view>
+
+  <view class="footer-actions">
+    <button class="button" bindtap="createDish">新增菜品</button>
+  </view>
+</view>
