@@ -17,6 +17,14 @@
 npm test
 ```
 
+## 在线预览
+
+GitHub Pages 会将 `preview` 目录部署为长期预览页：
+
+```text
+https://jiwangxia.github.io/Ordering-food/
+```
+
 ## 微信开发者工具打开方式
 
 1. 打开微信开发者工具。
