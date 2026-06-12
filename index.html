@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>共享菜单小程序界面预览</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #ece6db;
+      color: #25231f;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+
+    .preview-shell {
+      display: grid;
+      grid-template-columns: 280px minmax(360px, 430px) 1fr;
+      gap: 28px;
+      min-height: 100vh;
+      padding: 32px;
+    }
+
+    .side {
+      padding: 22px;
+      background: #fffdfa;
+      border-right: 1px solid #e4dccf;
+    }
+
+    .brand {
+      margin-bottom: 8px;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .desc {
+      margin-bottom: 28px;
+      color: #716b62;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav button {
+      height: 42px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #34302a;
+      text-align: left;
+      padding: 0 14px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .nav button.active {
+      background: #2f6b45;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .phone {
+      align-self: start;
+      width: 390px;
+      min-height: 844px;
+      overflow: hidden;
+      border: 10px solid #1e1e1e;
+      border-radius: 36px;
+      background: #f7f4ef;
+      box-shadow: 0 18px 60px rgba(32, 24, 16, 0.26);
+    }
+
+    .status-bar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: #f7f4ef;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .nav-bar {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #e7dfd2;
+      background: #f7f4ef;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .screen {
+      min-height: 748px;
+      padding: 24px;
+      background: #f7f4ef;
+    }
+
+    .title {
+      margin: 4px 0 8px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .subtitle,
+    .muted {
+      color: #746f66;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 28px 0 14px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .card {
+      margin-bottom: 14px;
+      padding: 16px;
+      background: #fffdfa;
+      border: 1px solid #e7dfd2;
+      border-radius: 8px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #e8f2eb;
+      color: #2f6b45;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: #2f6b45;
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .button.secondary {
+      background: #fffdfa;
+      color: #2f6b45;
+      border: 1px solid #a7c7ae;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .entry {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .dish {
+      display: flex;
+      gap: 14px;
+    }
+
+    .dish-cover {
+      flex: 0 0 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #dce7d2;
+      color: #2f6b45;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .dish-name,
+    .session-name,
+    .member-name {
+      font-weight: 800;
+    }
+
+    .count {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .confirm {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #eee4d8;
+      color: #4d5048;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .input,
+    .textarea {
+      width: 100%;
+      border: 1px solid #e0d7ca;
+      border-radius: 8px;
+      background: #fffdfa;
+      min-height: 44px;
+      padding: 10px 12px;
+      color: #8a8379;
+      font-size: 14px;
+    }
+
+    .textarea {
+      min-height: 92px;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .segmented span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      border-radius: 8px;
+      background: #efe8dd;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-actions {
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      gap: 10px;
+      padding-top: 14px;
+      background: #f7f4ef;
+    }
+
+    .notes {
+      max-width: 420px;
+      align-self: start;
+      padding: 22px;
+      background: rgba(255, 253, 250, 0.72);
+      border: 1px solid #e1d8ca;
+      border-radius: 8px;
+      line-height: 1.65;
+      color: #5b554d;
+    }
+
+    .notes h2 {
+      margin: 0 0 10px;
+      color: #25231f;
+      font-size: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .preview-shell {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 18px;
+      }
+
+      .side,
+      .notes {
+        width: 100%;
+        max-width: 430px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+    <aside class="side">
+      <div class="brand">共享菜单</div>
+      <div class="desc">浏览当前搭好的小程序页面视觉稿。左侧切换页面，中间是手机尺寸预览。</div>
+      <nav class="nav" id="nav"></nav>
+    </aside>
+
+    <section class="phone">
+      <div class="status-bar">
+        <span>19:00</span>
+        <span>5G 100%</span>
+      </div>
+      <div class="nav-bar" id="navTitle">共享菜单</div>
+      <div class="screen" id="screen"></div>
+    </section>
+
+    <aside class="notes">
+      <h2>当前预览说明</h2>
+      <div>这是为了“马上能看界面”单独生成的浏览器预览，不替代真实微信小程序运行环境。</div>
+      <div style="margin-top: 12px;">真实源码仍在 <strong>miniprogram</strong> 目录里；这个预览页只是把同一套视觉结构转成 HTML 展示。</div>
+    </aside>
+  </main>
+
+  <script>
+    const pages = [
+      {
+        id: 'login',
+        title: '登录',
+        label: '登录页',
+        html: `
+          <div style="padding: 58px 0 38px;">
+            <div class="title">共享菜单</div>
+            <div class="subtitle">为朋友饭局创建空间、一起点菜、由厨师确认最终可做份数。</div>
+          </div>
+          <div class="card stack">
+            <div class="section-title" style="margin:0;">开始使用</div>
+            <button class="button">微信登录</button>
+          </div>
+        `,
+      },
+      {
+        id: 'spaces',
+        title: '我的空间',
+        label: '空间列表',
+        html: `
+          <div class="title">我的空间</div>
+          <div class="subtitle">选择一个饭局空间继续。</div>
+          <div class="section-title">已加入</div>
+          <div class="card">
+            <div class="row">
+              <div>
+                <div class="session-name">周末饭局</div>
+                <div class="muted">朋友共享菜单试用空间</div>
+              </div>
+              <span class="tag">饭票</span>
+            </div>
+            <div class="muted" style="margin-top:10px;">邀请码 MENU88</div>
+          </div>
+          <div class="footer-actions">
+            <button class="button secondary">创建空间</button>
+            <button class="button secondary">加入空间</button>
+          </div>
+        `,
+      },
+      {
+        id: 'home',
+        title: '空间首页',
+        label: '空间首页',
+        html: `
+          <div class="title">周末饭局</div>
+          <div class="subtitle">朋友共享菜单试用空间</div>
+          <div class="section-title">功能入口</div>
+          <div class="grid">
+            <div class="card entry">菜品库</div>
+            <div class="card entry">点单局</div>
+            <div class="card entry">成员管理</div>
+            <div class="card entry">历史订单</div>
+          </div>
+          <div class="section-title">提醒</div>
+          <div class="card row">
+            <div>周六晚饭等待厨师确认</div>
+            <span class="tag">红点提醒</span>
+          </div>
+        `,
+      },
+      {
+        id: 'dishes',
+        title: '菜品库',
+        label: '菜品库',
+        html: `
+          <div class="title">菜品库</div>
+          <div class="input">搜索菜名</div>
+          <div class="section-title">全部菜品</div>
+          <div class="card dish">
+            <div class="dish-cover">番</div>
+            <div>
+              <div class="row"><div class="dish-name">番茄炒蛋</div><span class="tag">12 饭票</span></div>
+              <div class="muted">番茄、鸡蛋、葱</div>
+              <div class="subtitle">酸甜口，适合配米饭。</div>
+            </div>
+          </div>
+          <div class="card dish">
+            <div class="dish-cover">可</div>
+            <div>
+              <div class="row"><div class="dish-name">可乐鸡翅</div><span class="tag">20 饭票</span></div>
+              <div class="muted">鸡翅、可乐、生抽</div>
+              <div class="subtitle">偏甜口，孩子也会喜欢。</div>
+            </div>
+          </div>
+          <div class="footer-actions"><button class="button">新增菜品</button></div>
+        `,
+      },
+      {
+        id: 'session',
+        title: '点单详情',
+        label: '点单详情',
+        html: `
+          <div class="row">
+            <div><div class="title">周六晚饭</div><div class="subtitle">先点菜，厨师晚点确认。</div></div>
+            <span class="tag">待厨师确认</span>
+          </div>
+          <div class="section-title">菜单汇总</div>
+          <div class="card">
+            <div class="row"><div><div class="dish-name">番茄炒蛋</div><div class="muted">12 饭票/份</div></div><div class="count">x3</div></div>
+            <div class="muted">成员：阿夏 x2，小陆 x1</div>
+            <div class="confirm"><div>厨师确认：可做</div><div>最终有效 x3，36 饭票</div></div>
+          </div>
+          <div class="card">
+            <div class="row"><div><div class="dish-name">可乐鸡翅</div><div class="muted">20 饭票/份</div></div><div class="count">x3</div></div>
+            <div class="muted">成员：阿夏 x2，小陆 x1</div>
+            <div class="confirm"><div>厨师确认：部分可做</div><div>最终有效 x1，20 饭票</div></div>
+          </div>
+          <div class="section-title">底部汇总</div>
+          <div class="card stack"><div class="row"><div>原始合计</div><div>6 份 / 96 饭票</div></div><div class="row"><div>最终有效</div><div>4 份 / 56 饭票</div></div></div>
+          <div class="footer-actions"><button class="button secondary">厨师确认</button><button class="button">提交订单</button></div>
+        `,
+      },
+      {
+        id: 'chef',
+        title: '厨师确认',
+        label: '厨师确认',
+        html: `
+          <div class="title">厨师确认</div>
+          <div class="subtitle">确认每道菜可做、部分可做或无货。</div>
+          <div class="card stack">
+            <div class="row"><div><div class="dish-name">可乐鸡翅</div><div class="muted">原点 x3</div></div><span class="tag">部分可做</span></div>
+            <div class="segmented"><span>可做</span><span>部分</span><span>无货</span></div>
+            <div class="input">1</div>
+            <div class="textarea">鸡翅只剩一份</div>
+          </div>
+          <div class="footer-actions"><button class="button">保存确认结果</button></div>
+        `,
+      },
+      {
+        id: 'order',
+        title: '订单详情',
+        label: '订单详情',
+        html: `
+          <div class="title">订单详情</div>
+          <div class="subtitle">保留每次提交后的订单版本快照。</div>
+          <div class="section-title">当前版本</div>
+          <div class="card stack"><div class="row"><div>订单状态</div><span class="tag">active</span></div><div class="row"><div>最新版本</div><div>v1</div></div></div>
+          <div class="section-title">最终菜单</div>
+          <div class="card"><div class="row"><div>番茄炒蛋</div><div>x3</div></div><div class="muted">36 饭票</div></div>
+          <div class="card"><div class="row"><div>可乐鸡翅</div><div>x1</div></div><div class="muted">20 饭票</div></div>
+          <div class="section-title">版本记录</div>
+          <div class="card row"><div>版本 v1</div><div class="muted">2026-06-13 19:00</div></div>
+        `,
+      },
+    ];
+
+    const nav = document.getElementById('nav');
+    const screen = document.getElementById('screen');
+    const navTitle = document.getElementById('navTitle');
+
+    function render(id) {
+      const page = pages.find((item) => item.id === id) || pages[0];
+      navTitle.textContent = page.title;
+      screen.innerHTML = page.html;
+      [...nav.querySelectorAll('button')].forEach((button) => {
+        button.classList.toggle('active', button.dataset.id === page.id);
+      });
+    }
+
+    pages.forEach((page) => {
+      const button = document.createElement('button');
+      button.textContent = page.label;
+      button.dataset.id = page.id;
+      button.addEventListener('click', () => render(page.id));
+      nav.appendChild(button);
+    });
+
+    render('session');
+  </script>
+</body>
+</html>
