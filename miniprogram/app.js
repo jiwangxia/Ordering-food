@@ -1,7 +1,7 @@
 App({
   globalData: {
-    envId: '',
-    useMock: true,
+    envId: 'cloud1-d7ghg1h5w0a2aea57',
+    useMock: false,
     currentUser: null,
     currentSpace: null,
     pendingProfile: null,
