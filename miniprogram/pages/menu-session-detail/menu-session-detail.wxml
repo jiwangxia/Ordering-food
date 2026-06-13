@@ -35,6 +35,17 @@
     </view>
   </view>
 
+  <view class="section-title">从菜品库添加</view>
+  <view wx:for="{{dishes}}" wx:key="_id" class="card">
+    <view class="row">
+      <view>
+        <view class="dish-name">{{item.name}}</view>
+        <view class="muted">{{item.price}} 饭票/份</view>
+      </view>
+      <button size="mini" bindtap="addDish" data-id="{{item._id}}">+1</button>
+    </view>
+  </view>
+
   <view class="footer-actions">
     <button class="button secondary" bindtap="goChefConfirm">厨师确认</button>
     <button class="button" bindtap="submitSession">提交订单</button>

@@ -4,6 +4,7 @@ App({
     useMock: true,
     currentUser: null,
     currentSpace: null,
+    pendingProfile: null,
   },
 
   onLaunch() {

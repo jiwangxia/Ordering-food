@@ -35,7 +35,7 @@ https://jiwangxia.github.io/Ordering-food/
 
 ## 下一步建议
 
-1. 先实现 `login` 和 `users` 集合落库。
-2. 接入 `createSpace`、`joinSpace`、`updateMemberRole`。
-3. 接入菜品图片上传和 `dishes` 集合写入。
-4. 将点单局提交、厨师确认和订单版本生成迁移到云函数。
+1. 开通微信云开发环境。
+2. 按 [云开发接入说明](docs/cloudbase-setup.md) 创建集合并上传 `appApi` 云函数。
+3. 将 `miniprogram/app.js` 中的 `envId` 填好，并把 `useMock` 改为 `false`。
+4. 在微信开发者工具里联调真实登录、空间、菜品、点单和厨师确认流程。

@@ -1,3 +1,9 @@
 .member-name {
   font-weight: 700;
 }
+
+.member-actions {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}

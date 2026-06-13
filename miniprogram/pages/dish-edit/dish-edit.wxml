@@ -1,11 +1,12 @@
 <view class="page">
   <view class="title">新增菜品</view>
   <view class="stack">
-    <input class="input" placeholder="菜名" />
-    <input class="input" type="number" placeholder="虚拟价格" />
-    <input class="input" placeholder="食材，用顿号或逗号分隔" />
-    <textarea class="textarea" placeholder="做法描述"></textarea>
-    <button class="button secondary">选择图片</button>
+    <input class="input" value="{{name}}" placeholder="菜名" bindinput="handleName" />
+    <input class="input" value="{{price}}" type="number" placeholder="虚拟价格" bindinput="handlePrice" />
+    <input class="input" value="{{ingredients}}" placeholder="食材，用顿号或逗号分隔" bindinput="handleIngredients" />
+    <textarea class="textarea" value="{{description}}" placeholder="做法描述" bindinput="handleDescription"></textarea>
+    <button class="button secondary" bindtap="chooseImage">选择图片</button>
+    <view wx:if="{{imageFileId}}" class="muted">已选择图片</view>
   </view>
   <view class="footer-actions">
     <button class="button" bindtap="saveDish">保存到菜品库</button>

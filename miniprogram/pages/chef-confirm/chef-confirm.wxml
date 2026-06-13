@@ -11,12 +11,12 @@
       <view class="tag">{{item.confirmText}}</view>
     </view>
     <view class="segmented">
-      <button size="mini">可做</button>
-      <button size="mini">部分</button>
-      <button size="mini">无货</button>
+      <button size="mini" bindtap="setStatus" data-index="{{index}}" data-status="available">可做</button>
+      <button size="mini" bindtap="setStatus" data-index="{{index}}" data-status="partial">部分</button>
+      <button size="mini" bindtap="setStatus" data-index="{{index}}" data-status="unavailable">无货</button>
     </view>
-    <input class="input" type="number" placeholder="部分可做时填写份数" value="{{item.confirmation.available_quantity}}" />
-    <textarea class="textarea" placeholder="厨师备注" value="{{item.confirmation.note}}"></textarea>
+    <input class="input" type="number" placeholder="部分可做时填写份数" value="{{item.confirmation.available_quantity}}" bindinput="handleQuantity" data-index="{{index}}" />
+    <textarea class="textarea" placeholder="厨师备注" value="{{item.confirmation.note}}" bindinput="handleNote" data-index="{{index}}"></textarea>
   </view>
 
   <view class="footer-actions">

@@ -18,8 +18,20 @@
     <view class="muted">邀请码 {{item.invite_code}}</view>
   </view>
 
+  <view class="section-title">创建空间</view>
+  <view class="card stack">
+    <input class="input" value="{{newSpaceName}}" placeholder="空间名称，例如 周末饭局" bindinput="handleNewSpaceName" />
+    <input class="input" value="{{newSpaceDescription}}" placeholder="空间描述" bindinput="handleNewSpaceDescription" />
+    <input class="input" value="{{currencyName}}" placeholder="虚拟货币名称，默认饭票" bindinput="handleCurrencyName" />
+  </view>
+
+  <view class="section-title">加入空间</view>
+  <view class="card">
+    <input class="input" value="{{inviteCode}}" placeholder="输入邀请码" bindinput="handleInviteCode" />
+  </view>
+
   <view class="footer-actions">
-    <button class="button secondary">创建空间</button>
-    <button class="button secondary">加入空间</button>
+    <button class="button secondary" bindtap="createSpace">创建空间</button>
+    <button class="button secondary" bindtap="joinSpace">加入空间</button>
   </view>
 </view>

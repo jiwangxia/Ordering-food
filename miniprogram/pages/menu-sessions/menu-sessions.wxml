@@ -13,7 +13,13 @@
     </view>
   </view>
 
+  <view class="section-title">创建点单局</view>
+  <view class="card stack">
+    <input class="input" value="{{newSessionName}}" placeholder="点单局名称，例如 周六晚饭" bindinput="handleSessionName" />
+    <input class="input" value="{{newSessionDescription}}" placeholder="说明" bindinput="handleSessionDescription" />
+  </view>
+
   <view class="footer-actions">
-    <button class="button">创建点单局</button>
+    <button class="button" bindtap="createSession">创建点单局</button>
   </view>
 </view>

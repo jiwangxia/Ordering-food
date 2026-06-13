@@ -10,5 +10,9 @@
       </view>
       <view class="tag">{{item.role}}</view>
     </view>
+    <view class="member-actions">
+      <button size="mini" bindtap="setRole" data-user-id="{{item.user_id}}" data-role="chef">设为厨师</button>
+      <button size="mini" bindtap="setRole" data-user-id="{{item.user_id}}" data-role="member">设为成员</button>
+    </view>
   </view>
 </view>

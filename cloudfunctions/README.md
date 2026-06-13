@@ -15,7 +15,11 @@
 - `confirmDishAvailability`
 - `calculateMenuSummary`
 
-除 `login` 和 `calculateMenuSummary` 外，其余函数目前返回 `NOT_CONNECTED`，用于明确后端边界并避免前端误以为写操作已经落库。
+当前小程序真实模式默认调用统一云函数：
+
+- `appApi`
+
+`appApi` 已实现登录、空间、成员、菜品、点单局、点单记录、厨师确认、订单版本和查询接口。其余按 API 名称拆分的函数目录保留为早期边界，后续可以继续拆分，也可以保持统一入口。
 
 真实接入 CloudBase 时，每个写函数都应先做三类校验：
 
